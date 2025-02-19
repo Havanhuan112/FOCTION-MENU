@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Load Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://i.pinimg.com/originals/01/b4/99/01b4994a85faef9e2bd4ff9276eb12c0.gif') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid red;
+    text-align: center;
+    color: white;
+    width: 400px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Button có radius đẹp hơn */
+.btn {
+    background: linear-gradient(45deg, Red, black);
+    color: gray;
+    padding: 10px 30px;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, blue, red);
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.9);
+    background: green;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: green;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Divider */
+.divider {
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid red;
+}
+.divider2 {
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid red;
+}
+
+/* Checkbox Custom */
+.checkboxes {
+    display: flex;
+    justify-content: center;
+}
+
+.checkboxes label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    margin: 5px 10px;
+    transition: 0.3s;
+}
+
+.checkboxes label:hover {
+    color: cyan;
+}
+
+.checkboxes input {
+    display: none;
+}
+
+/* Custom checkbox */
+.checkboxes label::before {
+    content: "\f0c8"; /* Square FA */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    margin-right: 8px;
+    color: black;
+    transition: 0.3s;
+}
+
+/* Khi checked, hiển thị icon tích xanh */
+.checkboxes input:checked + label::before {
+    content: "\f00c"; /* Check FA */
+    color: green;
+}
+
+/* Thanh loading */
+.loading-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background: #ddd;
+    height: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background: blue;
+    transition: 4s;
+}
+
+.success-icon {
+    position: absolute;
+    top: -25px;
+    right: 5px;
+    color: green;
+    font-size: 20px;
+    display: none;
+}
+
+.loading-icon {
+    position: absolute;
+    top: -25px;
+    left: 5px;
+    color: blue;
+    font-size: 20px;
+}
+/* Avatar coder */
+.coder-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid transparent;
+    box-shadow: 0px 0px 10px red;
+    animation: glow 1.5s infinite alternate;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hiệu ứng phát sáng */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 5px red;
+    }
+    100% {
+        box-shadow: 0px 0px 15px red;
+    }
+}
+
+/* Hiệu ứng hover */
+.coder-avatar:hover {
+    transform: scale(1.1);
+}
+/* Thông báo tìm nhạc */
+#music-loading {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.5s;
+}
+
+/* Ẩn thông báo sau khi tìm xong */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+</style>
+</head>
+<body>
+<!-- Thông báo tìm nhạc -->
+<div id="music-loading">
+    <i class="fas fa-spinner fa-spin"></i>Install Recos Data...
+</div>
+
+<!-- Audio player (ẩn) -->
+<audio id="background-music" autoplay loop>
+    <source id="music-source" src="" type="audio/mpeg">
+</audio>
+     
+<div class="container">
+<div class="divider2">
+<div class="icon-container">
+    <div class="icon-item">
+        <i class="fas fa-user-shield"></i> <span>Admin : Huấn Hà VN</span>
+    </div>
+    <div class="icon-item">
+    <i class="fas fa-mobile-alt"></i><span id="current-time">Thiết Bị : Iphone </span>
+    </div>
+<div class="coder-time">
+     
+ <i class="fas fa-clock"></i>
+<span>Thời Gian :</span> <span id="coder-time">00:00:00 AM</span>
+</div>
+</div>
+</div>
+        <div class="buttons">
+ <div class="divider2">
+            <button class="btn" onclick="handleClick()">Aimbot</button>
+            <button class="btn" onclick="handleClick()">Aimlock</button>
+            <button class="btn" onclick="handleClick()">Aimhead</button>
+            <button class="btn" onclick="handleClick()">Aimbint</button>
+        </div>
+</div>
+
+        <div class="switches">
+           SENSITIVITY X2 <label class="switch">
+                <input type="checkbox" onclick="handleClick()">
+                <span class="slider"></span>
+            </label>
+            <label class="switch">
+                <input type="checkbox" onclick="handleClick()">
+                <span class="slider"></span>
+            </label>SMOOTH V3
+        </div>
+
+        <div class="divider">Chức Năng Khác</div>
+
+        <div class="checkboxes">
+            <input type="checkbox" id="check1">
+            <label for="check1"> Dipi 540</label>
+
+            <input type="checkbox" id="check2">
+            <label for="check2"> Dipi 640</label>
+
+            <input type="checkbox" id="check3">
+            <label for="check3"> Dipi 685</label>
+        </div>
+<div class="divider2">
+<!-- Phần liên hệ -->
+        <a href="https://t.me/suporthuanha" target="_blank">Telegram</a>
+        <a href="https://zaloapp.com/qr/p/1s3nnmtozvd1l?src=qr" target="_blank">Zalo</a>
+        <a href="https://www.youtube.com/@Hu%E1%BA%A5nBot-m7g" target="_blank">YouTube</a>
+        <a href="https://www.facebook.com/profile.php?id=61561543393412" target="_blank">Facebook</a>
+</div>
+    </div>
+
+    <!-- Thanh loading -->
+    <div id="loadingBar" class="loading-bar">
+        <i id="loadingIcon" class="fas fa-info-circle loading-icon"></i>
+        <div class="progress"></div>
+        <i id="successIcon" class="fa fa-check-circle success-icon"></i>
+    </div>
+    <script>
+function handleClick() {
+    showLoadingBar();
+}
+
+function showLoadingBar() {
+    let bar = document.getElementById("loadingBar");
+    let progress = document.querySelector(".progress");
+    let successIcon = document.getElementById("successIcon");
+    let loadingIcon = document.getElementById("loadingIcon");
+
+    progress.style.width = "0%";
+    successIcon.style.display = "none";
+    loadingIcon.style.display = "block";
+    bar.style.display = "block";
+
+    setTimeout(() => {
+        progress.style.width = "100%";
+    }, 10);
+
+    setTimeout(() => {
+        loadingIcon.style.display = "none";
+        successIcon.style.display = "block";
+        setTimeout(() => {
+            bar.style.display = "none";
+        }, 2000);
+    }, 4000);
+}
+function updateCoderTime() {
+    let timeElement = document.getElementById("coder-time");
+    let now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    let ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    timeElement.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+}
+
+setInterval(updateCoderTime, 1000);
+updateCoderTime();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let musicList = [
+        "music1.mp3",
+        "music2.mp3",
+        "music3.mp3",
+        "music4.mp3",
+        "music5.mp3"
+    ];
+
+    let musicLoading = document.getElementById("music-loading");
+    let musicElement = document.getElementById("background-music");
+    let musicSource = document.getElementById("music-source");
+
+    // Chờ 4 giây, sau đó chọn nhạc ngẫu nhiên
+    setTimeout(() => {
+        let randomMusic = musicList[Math.floor(Math.random() * musicList.length)];
+        musicSource.src = randomMusic;
+        musicElement.load();
+        musicElement.play();
+        
+        // Ẩn thông báo
+        musicLoading.classList.add("hidden");
+    }, 4000);
+});
+</script>
+</body>
+</html>

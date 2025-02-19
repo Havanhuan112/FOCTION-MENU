@@ -1,0 +1,63 @@
+/* Cài đặt chung */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('assets/background.gif') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+}
+
+/* Biểu tượng thông tin */
+.info-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+/* Logo */
+.logo-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* Container loading */
+.loading-container {
+    position: absolute;
+    bottom: 50px;
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Thanh progress */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+/* Hiệu ứng thanh loading */
+.progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    animation: loading 8s linear forwards;
+}
+
+/* Hiệu ứng chạy từ từ */
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
