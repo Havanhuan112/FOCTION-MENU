@@ -1,0 +1,248 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://i.pinimg.com/originals/01/b4/99/01b4994a85faef9e2bd4ff9276eb12c0.gif') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid red;
+    text-align: center;
+    color: white;
+    width: 400px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Button có radius đẹp hơn */
+.btn {
+    background: linear-gradient(45deg, Red, black);
+    color: gray;
+    padding: 10px 30px;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, blue, red);
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.9);
+    background: green;
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: green;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Divider */
+.divider {
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid red;
+}
+.divider2 {
+    background-color: transparent;
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: 1px solid red;
+}
+
+/* Checkbox Custom */
+.checkboxes {
+    display: flex;
+    justify-content: center;
+}
+
+.checkboxes label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    margin: 5px 10px;
+    transition: 0.3s;
+}
+
+.checkboxes label:hover {
+    color: cyan;
+}
+
+.checkboxes input {
+    display: none;
+}
+
+/* Custom checkbox */
+.checkboxes label::before {
+    content: "\f0c8"; /* Square FA */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    margin-right: 8px;
+    color: black;
+    transition: 0.3s;
+}
+
+/* Khi checked, hiển thị icon tích xanh */
+.checkboxes input:checked + label::before {
+    content: "\f00c"; /* Check FA */
+    color: green;
+}
+
+/* Thanh loading */
+.loading-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background: #ddd;
+    height: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background: blue;
+    transition: 4s;
+}
+
+.success-icon {
+    position: absolute;
+    top: -25px;
+    right: 5px;
+    color: green;
+    font-size: 20px;
+    display: none;
+}
+
+.loading-icon {
+    position: absolute;
+    top: -25px;
+    left: 5px;
+    color: blue;
+    font-size: 20px;
+}
+/* Avatar coder */
+.coder-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid transparent;
+    box-shadow: 0px 0px 10px red;
+    animation: glow 1.5s infinite alternate;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hiệu ứng phát sáng */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 5px red;
+    }
+    100% {
+        box-shadow: 0px 0px 15px red;
+    }
+}
+
+/* Hiệu ứng hover */
+.coder-avatar:hover {
+    transform: scale(1.1);
+}
+/* Thông báo tìm nhạc */
+#music-loading {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.5s;
+}
+
+/* Ẩn thông báo sau khi tìm xong */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

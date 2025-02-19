@@ -3,30 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading...</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Load Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- Thông báo tìm nhạc -->
+<div id="music-loading">
+    <i class="fas fa-spinner fa-spin"></i>Install Recos Data...
+</div>
 
-    <!-- Biểu tượng thông tin -->
-    <div class="info-icon">
-        <i class="fas fa-info-circle"></i>
+<!-- Audio player (ẩn) -->
+<audio id="background-music" autoplay loop>
+    <source id="music-source" src="" type="audio/mpeg">
+</audio>
+     
+<div class="container">
+<div class="divider2">
+<div class="icon-container">
+    <div class="icon-item">
+        <i class="fas fa-user-shield"></i> <span>Admin : Huấn Hà VN</span>
     </div>
+    <div class="icon-item">
+    <i class="fas fa-mobile-alt"></i><span id="current-time">Thiết Bị : Iphone </span>
+    </div>
+<div class="coder-time">
+     
+ <i class="fas fa-clock"></i>
+<span>Thời Gian :</span> <span id="coder-time">00:00:00 AM</span>
+</div>
+</div>
+</div>
+        <div class="buttons">
+ <div class="divider2">
+            <button class="btn" onclick="handleClick()">Aimbot</button>
+            <button class="btn" onclick="handleClick()">Aimlock</button>
+            <button class="btn" onclick="handleClick()">Aimhead</button>
+            <button class="btn" onclick="handleClick()">Aimbint</button>
+        </div>
+</div>
 
-    <!-- Logo -->
-    <div class="logo-container">
-        <img src="assets/logo.png" alt="Logo">
+        <div class="switches">
+           SENSITIVITY X2 <label class="switch">
+                <input type="checkbox" onclick="handleClick()">
+                <span class="slider"></span>
+            </label>
+            <label class="switch">
+                <input type="checkbox" onclick="handleClick()">
+                <span class="slider"></span>
+            </label>SMOOTH V3
+        </div>
+
+        <div class="divider">Chức Năng Khác</div>
+
+        <div class="checkboxes">
+            <input type="checkbox" id="check1">
+            <label for="check1"> Dipi 540</label>
+
+            <input type="checkbox" id="check2">
+            <label for="check2"> Dipi 640</label>
+
+            <input type="checkbox" id="check3">
+            <label for="check3"> Dipi 685</label>
+        </div>
+<div class="divider2">
+<!-- Phần liên hệ -->
+        <a href="https://t.me/suporthuanha" target="_blank">Telegram</a>
+        <a href="https://zaloapp.com/qr/p/1s3nnmtozvd1l?src=qr" target="_blank">Zalo</a>
+        <a href="https://www.youtube.com/@Hu%E1%BA%A5nBot-m7g" target="_blank">YouTube</a>
+        <a href="https://www.facebook.com/profile.php?id=61561543393412" target="_blank">Facebook</a>
+</div>
     </div>
 
     <!-- Thanh loading -->
-    <div class="loading-container">
-        <p>Đang tải, vui lòng chờ...</p>
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
+    <div id="loadingBar" class="loading-bar">
+        <i id="loadingIcon" class="fas fa-info-circle loading-icon"></i>
+        <div class="progress"></div>
+        <i id="successIcon" class="fa fa-check-circle success-icon"></i>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
