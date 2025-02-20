@@ -255,9 +255,87 @@ input:checked + .slider:before {
     opacity: 0;
     pointer-events: none;
 }
+
+    /* Lớp phủ mờ */
+.maintenance-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Hộp thông báo bảo trì */
+.maintenance-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    backdrop-filter: blur(10px);
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Hiệu ứng viền phát sáng */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+    }
+}
+
+/* Tiêu đề */
+.maintenance-box h2 {
+    color: #FFD700;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Nội dung thông báo */
+.maintenance-box p {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Loader hiệu ứng VIP */
+.loader {
+    margin-top: 15px;
+    width: 50px;
+    height: 50px;
+    border: 5px solid transparent;
+    border-top: 5px solid #FFD700;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 </style>
 </head>
 <body>
+    <div class="maintenance-overlay">
+        <div class="maintenance-box">
+            <h2>🚧  Đang Bảo Trì 🚧</h2>
+            <p>Chúng tôi đang nâng cấp hệ thống để mang đến trải nghiệm tốt hơn. Vui lòng quay lại sau!</p>
+<!-- Phần liên hệ -->
+        <a href="https://t.me/suporthuanha" target="_blank">Telegram</a>
+        <a href="https://zaloapp.com/qr/p/1s3nnmtozvd1l?src=qr" target="_blank">Zalo</a>
+        <a href="https://www.youtube.com/@Hu%E1%BA%A5nBot-m7g" target="_blank">YouTube</a>
+        <a href="https://www.facebook.com/profile.php?id=61561543393412" target="_blank">Facebook</a>
+            <div class="loader"></div>
+        </div>
+    </div>
 <!-- Thông báo tìm nhạc -->
 <div id="music-loading">
     <i class="fas fa-spinner fa-spin"></i>Install Recos Data...
@@ -399,6 +477,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Ẩn thông báo
         musicLoading.classList.add("hidden");
     }, 4000);
+});
+    // nênd mờ 
+// Chặn tất cả thao tác trên trang
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.style.pointerEvents = "none";
 });
 </script>
 </body>
